@@ -4,7 +4,6 @@ import {Link} from 'expo-router'
 import { ThemedText } from '@/components/ThemedText'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import EntypoIcon from "react-native-vector-icons/Entypo";
-import Game from '@/app/games/rncg/ui/screens/game'
 
 
 const Games = () => {
@@ -17,24 +16,26 @@ const Games = () => {
 				asChild
 			>
 				<TouchableOpacity style={styles.option}>
-					<EntypoIcon name="colours" size={30} color="white" />
+					<EntypoIcon name="game-controller" size={30} color="white" />
 					<ThemedText>Color Match</ThemedText>
 				</TouchableOpacity>
 			</Link>
 			<Link
 				href={{
-					pathname: "/games/rncw/app",
+					pathname: "/games/rncw/App",
 				}}
         asChild
 			>
 				<TouchableOpacity style={styles.option}>
-					<EntypoIcon name="colours" size={30} color="white" />
+					<EntypoIcon name="game-controller" size={30} color="white" />
 					<ThemedText>Color Waver</ThemedText>
 				</TouchableOpacity>
 			</Link>
 			<Link href={{
-					pathname: "/games/rnsm/screens/HomeScreen",
-				}} asChild>
+					pathname: "/games/rnsm/GameNavigator",
+				}}
+				asChild
+			>
 				<TouchableOpacity style={styles.option}>
 					<EntypoIcon name="game-controller" size={30} color="white" />
 					<ThemedText>Sequence Memorizer</ThemedText>
