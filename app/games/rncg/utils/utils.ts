@@ -98,3 +98,12 @@ export function changeNumToFa(text:string) {
   finalText = finalText.replace(r9, '۹');
   return finalText;
 }
+
+const utils = {
+  getTime,
+  createColorArray,
+  emptyItem,
+  changeNumToFa,
+};
+
+export default utils;
