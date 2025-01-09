@@ -8,8 +8,10 @@ import {
 	Button,
 	Alert,
 	PermissionsAndroid,
+	TouchableOpacity,
 	Platform,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import * as Location from "expo-location";
 import axios from "axios";
 import { useNavigation, useRouter } from "expo-router";
@@ -103,7 +105,7 @@ const LogIn = () => {
 					}
 				)
 				.then(() => {
-					nav.navigate("/choice");
+					nav.navigate("/shows");
 				});
 
 			// console.log("Save Audience Response:", response.data);
@@ -113,40 +115,46 @@ const LogIn = () => {
 	};
 
 	return (
-		<View style={styles.container}>
-			<ThemedText style={{ textAlign: "center", marginBottom: 10 }}>
-				Log In
-			</ThemedText>
-			<TextInput
-				style={styles.input}
-				placeholder="Username"
-				value={username}
-				onChangeText={setUsername}
-			/>
-			<TextInput
-				style={styles.input}
-				placeholder="Email"
-				value={email}
-				onChangeText={setEmail}
-				keyboardType="email-address"
-			/>
-			<TextInput
-				style={styles.input}
-				placeholder="Password"
-				value={password}
-				onChangeText={setPassword}
-				secureTextEntry
-			/>
-			<TextInput
-				style={styles.input}
-				placeholder="Seat Number"
-				value={seat}
-				onChangeText={setSeat}
-			/>
-			<View style={{ height: 50 }}>
-				<Button title="Sign Up" onPress={handleLogIn} />
+		<SafeAreaView style={styles.container}>
+			<View>
+				<ThemedText type="title" style={{ justifyContent: "center", alignItems: "center", textAlign: "center", marginBottom: 10, padding: 16, backgroundColor: "#0075cf", color: "white" }}>
+					Log In
+				</ThemedText>
+				<View style={{padding: 16}}>
+					<TextInput
+						style={styles.input}
+						placeholder="Username"
+						value={username}
+						onChangeText={setUsername}
+						/>
+					<TextInput
+						style={styles.input}
+						placeholder="Email"
+						value={email}
+						onChangeText={setEmail}
+						keyboardType="email-address"
+						/>
+					<TextInput
+						style={styles.input}
+						placeholder="Password"
+						value={password}
+						onChangeText={setPassword}
+						secureTextEntry
+						/>
+					<TextInput
+						style={styles.input}
+						placeholder="Seat Number"
+						value={seat}
+						onChangeText={setSeat}
+						/>
+				</View>
 			</View>
-		</View>
+			<TouchableOpacity onPress={handleLogIn} style={[styles.button, { marginTop: 20 }]}>
+				<ThemedText style={{ color: "white", fontWeight: "bold" }}>
+					SIGN UP
+				</ThemedText>
+			</TouchableOpacity>
+		</SafeAreaView>
 	);
 };
 
@@ -155,8 +163,7 @@ export default LogIn;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: "center",
-		padding: 16,
+		justifyContent: "space-between",
 		gap: 10,
 	},
 	title: {
@@ -173,4 +180,12 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 8,
 		borderRadius: 5,
 	},
+	button: {
+		padding: 16,
+		justifyContent: "center",
+		alignItems: "center",
+		width: "100%",
+		backgroundColor: "#0075cf",
+		fontSize: 24
+	}
 });
