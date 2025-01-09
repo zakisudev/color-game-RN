@@ -1,4 +1,3 @@
-
 import 'dotenv/config';
 
 export default {
@@ -13,7 +12,6 @@ export default {
         "newArchEnabled": true,
         "ios": {
             "supportsTablet": true,
-            "bundleIdentifier": "com.zakisu.Lights"
         },
         "android": {
             "adaptiveIcon": {
@@ -32,7 +30,7 @@ export default {
             [
                 "expo-splash-screen",
                 {
-                    "image": "./assets/images/splash-icon.png",
+                    "image": "./assets/images/splash-image.png",
                     "imageWidth": 200,
                     "resizeMode": "contain",
                     "backgroundColor": "#ffffff"
