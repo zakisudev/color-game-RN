@@ -1,21 +1,20 @@
-import { Tabs, Redirect } from 'expo-router';
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, View, Image, StyleSheet, text } from 'react-native';
 import { ThemedText } from "@/components/ThemedText";
-import HomeOptions from "./_components/HomeOptions";
-import { useLocalSearchParams, useSearchParams } from "expo-router/build/hooks";
-import useFetchShow from "@/hooks/useFetchShow";
 
 const Profile = (props) => {
-	const { showname } = useLocalSearchParams();
 	return (
 		<SafeAreaView style={styles.safeArea}>
 			<View
 				style={{
 					display: "flex",
+          alignItems: "center",
+          padding: 20,
+          gap: 10
 				}}
 			>
+        <View style={{ width: 50, height: 50 }}>
+          <Image source={require("@/assets/icons/profile.png")} style={{ width: "100%", height: "100%", objectFit: "contain", backgroundColor: "gray", borderRadius: 10 }} />
+        </View>
 				<ThemedText
 					style={{
 						fontSize: 24,
@@ -24,10 +23,7 @@ const Profile = (props) => {
 						textAlign: "center",
 					}}
 				>
-					Hi Yodahe,
-				</ThemedText>
-				<ThemedText style={{ textAlign: "center" }}>
-					Welcome
+					Yodahe Siyum
 				</ThemedText>
 			</View>
 		</SafeAreaView>
@@ -41,7 +37,18 @@ const styles = StyleSheet.create({
 		color: "white",
 	},
 	safeArea: {
-		paddingTop: 50,
+		flex: 1,
+		paddingTop: 20,
 		paddingHorizontal: 10,
+	},
+	searchInput: {
+		fontSize: 16,
+		height: 40,
+		borderWidth: 1,
+		borderColor: "#ccc",
+		borderRadius: 5,
+		backgroundColor: "#fff",
+		padding: 10,
+		marginBottom: 10,
 	},
 });

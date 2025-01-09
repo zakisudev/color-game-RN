@@ -1,4 +1,4 @@
-export interface Show {
+export default interface Show {
     id: number;
     name: string;         
     description: string;  
