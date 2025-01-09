@@ -32,3 +32,14 @@ export const Sounds = {
   LevelWon: require("../assets/sounds/LevelWon.wav"),
   LevelLost: require("../assets/sounds/LevelLost.wav"),
 };
+
+const Const = {
+  SequenceColors,
+  GameModes,
+  AppColors,
+  Font,
+  Images,
+  Sounds,
+};
+
+export default Const;
