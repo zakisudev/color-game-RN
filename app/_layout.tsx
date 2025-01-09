@@ -45,14 +45,11 @@ export default function RootLayout() {
 					backgroundColor: 'white',
 				}
 			}}>
-				<Stack.Screen name="login" options={{contentStyle: {backgroundColor: 'white'}, headerShadowVisible: false}} />
+				<Stack.Screen name="login" options={{ contentStyle: { backgroundColor: 'white' }, headerShadowVisible: false, headerShown: false }} />
 				<Stack.Screen name="index" options={{ headerShadowVisible: false }} />
-				<Stack.Screen name="(users)" options={{ headerShown: false, title: ""}} />
-				<Stack.Screen name="(admins)/colorControl" options={{ title: 'Color Control',}} />
-				<Stack.Screen
-					name="(users)/choice"
-					options={{ title: "choice" }}
-				/>
+				<Stack.Screen name="(users)" options={{ headerShown: false }} />
+				<Stack.Screen name="(users)/search" options={{ headerShown: false }} />
+				<Stack.Screen name="(admins)/colorControl" options={{ title: 'Color Control' }} />
 			</Stack>
 			<StatusBar style="auto" />
 		</ThemeProvider>
