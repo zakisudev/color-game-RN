@@ -77,6 +77,80 @@ export default function TabsLayout() {
   return (
     <TouchableWithoutFeedback onPress={closeMenus}>
       <SafeAreaView style={styles.container}>
+        <View>
+          <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: 10, height: 50, borderBottomLeftRadius: 20 }}>
+            <TouchableOpacity onPress={toggleMenu}>
+              <Image
+                source={icons.menu}
+                resizeMode='contain'
+                style={{ width: 24, height: 24, tintColor: '#5d4364'}}
+              />
+            </TouchableOpacity>
+            <Animated.View
+              style={[
+                styles.sideMenu,
+                {
+                  transform: [{ translateX: slideAnim }],
+                },
+              ]}
+            >
+              <Text style={styles.menuHeaderText}>Menu</Text>
+              <TouchableOpacity style={styles.menuItem}>
+                <Link
+                  href={{
+                    pathname: "/home",
+                  }}
+                  asChild
+                >
+                  <TouchableOpacity onPress={toggleMenu} style={styles.option}>
+                    <ThemedText>Home</ThemedText>
+                  </TouchableOpacity>
+                </Link>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.menuItem}>
+                <Link
+                  href={{
+                    pathname: "/games",
+                  }}
+                  asChild
+                >
+                  <TouchableOpacity onPress={toggleMenu} style={styles.option}>
+                    <ThemedText>Games</ThemedText>
+                  </TouchableOpacity>
+                </Link>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={toggleMenu} style={styles.menuItem}>
+                <Link
+                  href={{
+                    pathname: "/search",
+                  }}
+                  asChild
+                >
+                  <TouchableOpacity onPress={toggleMenu} style={styles.option}>
+                    <ThemedText>Search</ThemedText>
+                  </TouchableOpacity>
+                </Link>
+              </TouchableOpacity>
+            </Animated.View>
+            <TouchableOpacity onPress={showProfileMenu}>
+              <Image
+                source={icons.profile}
+                resizeMode='contain'
+                style={{ width: 24, height: 24, tintColor: '#5d4364'}}
+                />
+            </TouchableOpacity>
+              {isProfileMenuOpen && (
+                <View style={styles.profileMenu}>
+                  <TouchableOpacity style={styles.profileMenuItem}>
+                    <Text style={styles.profileMenuItemText}>View Profile</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.profileMenuItem}>
+                    <Text style={styles.profileMenuItemText}>Logout</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+          </View>
+        </View>
         <Tabs screenOptions={{
             tabBarShowLabel: false,
             tabBarActiveTintColor: "#5d4364",
